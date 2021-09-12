@@ -52,18 +52,21 @@ options(flexaddins.items = list(
 If the above is used then the option to beep will always be shown, the
 rest will depend on the selection.
 
+We’ll have the helpers `flexaddins::add_option()` and
+`flexaddins::rm_option()` to make it easier.
+
 Options can be set through the R Profile, through custom functions or
 packages, or directly in the session.
 
-We’ll have the helpers `flexaddins::add_option()` and
-`flexaddins::rm_option()` to make it easier.
+Dedicated packages could set these options on attach and do nothing
+else.
 
 I don’t think we really need to attach the package in practice.
 
 Some use cases on the top of my head :
 
   - translating comments from a language to another
-  - call debugonce on selected function
+  - call `debugonce` on selected function
   - open source of .Internal or .Primitive call using
     `pryr::show_c_source()`
   - suggest running `usethis::use_package("foo")` if we select
@@ -82,5 +85,6 @@ So in the end we get :
     forgotten.
   - Because possible actions are shown only when relevant we’re not
     overwhelmed by choices.
+  - hopefully we get features that are easy to share among users
 
 Maybe also find a cuter and shorter name than {flexaddins} ?
